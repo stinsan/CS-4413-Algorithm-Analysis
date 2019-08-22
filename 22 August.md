@@ -1,6 +1,6 @@
 # Chapter 1
 
-Input -> **Algorithm** -> Output
+Input → **Algorithm** → Output
 
 Algorithms must: <br/>
 1. Terminatate <br/>
@@ -19,3 +19,5 @@ NP-complete algorithms:
 - P ≠ NP: "P" stands for polynomial, "N" stands for non-deterministic
 
 -----------------------------------------------------------------------
+
+# Chapter 2
