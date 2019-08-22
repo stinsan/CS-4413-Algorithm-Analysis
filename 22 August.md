@@ -22,7 +22,7 @@ NP-complete algorithms:
 
 # Chapter 2
 
-## Insertion sort
+#### Insertion sort
 - Efficient for sorting small data sets
 
 ![alt text](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/0.png)
