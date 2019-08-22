@@ -23,3 +23,6 @@ NP-complete algorithms:
 # Chapter 2
 
 ## Insertion sort
+- Efficient for sorting small data sets
+
+![alt text](https://imgur.com/a/2fe0jdv)
