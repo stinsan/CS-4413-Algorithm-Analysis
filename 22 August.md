@@ -26,3 +26,15 @@ NP-complete algorithms:
 - Efficient for sorting small data sets
 
 ![alt text](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/0.png)
+
+Correctness of insertion sort using **loop invariants**:
+ 
+To do this, we must show that at the start of every for-loop from lines 1 through 8, 
+the subarray A[1... j-1] consists of the elements originally in A[1...j-1], but in 
+sorted order.
+
+To show that a loop invariant proves correctness, we must show:
+1. **Initialization**: It is true prior to the first iteration of the for-loop
+2. **Maintenance**: It is true before an interation, it's also true before the next iteration
+3. **Termination**: When the loop terminates, the invariant gives us a useful property
+that helps show that the algorithm is correct
