@@ -22,4 +22,4 @@ NP-complete algorithms:
 
 # Chapter 2
 
-### Insertion sort
+## Insertion sort
