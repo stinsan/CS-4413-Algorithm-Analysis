@@ -19,3 +19,11 @@ Essentially, this algorithm works by "floating down" the node with a smaller val
 maintained.
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-11.png)
+
+The runtime of the Max-Heapify algorithm is T(n) = T(2n/3) + Θ(1).
+
+This can be simplified to T(n) = O(lg n) by case 2 of the Master Theorem.
+
+This can be even more simplified to O(h), where h is the height of the max-heap tree.
+
+## 6.3 | Building a Heap
