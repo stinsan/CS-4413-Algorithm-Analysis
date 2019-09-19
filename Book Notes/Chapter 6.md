@@ -27,3 +27,15 @@ This can be simplified to T(n) = O(lg n) by case 2 of the Master Theorem.
 This can be even more simplified to O(h), where h is the height of the max-heap tree.
 
 ## 6.3 | Building a Heap
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-12.png)
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-13.png)
+
+*Build-Max-Heap* takes O(n) time complexity.
+
+## 6.4 | The Heapsort Algorithm
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-14.png)
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-15.png)
