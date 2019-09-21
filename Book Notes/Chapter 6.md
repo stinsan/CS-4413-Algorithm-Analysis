@@ -58,7 +58,7 @@ A **max-priority queue** supports the following operations:
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-18.png)
 
-![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-19.png)
-
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-20.png)
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-19.png)
 
