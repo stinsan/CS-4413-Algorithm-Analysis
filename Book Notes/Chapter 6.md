@@ -39,3 +39,26 @@ This can be even more simplified to O(h), where h is the height of the max-heap 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-14.png)
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-15.png)
+
+Heapsort takes _O(n lg n)_ because Build-Max-Heap() takes _O(n)_ and each of the n - 1 calls to Max-Heapify() takes _O(lg n)_.
+
+## 6.5 | Priority Queue
+
+A **priority queue** is a data structure for maintaining a set _S_ of elements each with an associated value called a **key**.
+
+A **max-priority queue** supports the following operations:
+- *Insert(S, x)*: inserts the element *x* into the set *S*, which is equivalent to the operation *S = S ⋃ {x}*.
+- *Maximum(S)*: returns the element of *S* with the largest key.
+- *Extract-Max(S)*: removes and returns the element of *S* with the largest key.
+- *Increase-Key(S, x, k)*: increases the value of element *x*'s key to the new value *k*, which is assumed to be at least as large as *x*'s current key value.
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-16.png)
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-17.png)
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-18.png)
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-19.png)
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-20.png)
+
