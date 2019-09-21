@@ -62,3 +62,4 @@ A **max-priority queue** supports the following operations:
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-19.png)
 
+A heap can support any priority-queue operation on a set of size *n* in *O(lg n)* time.
