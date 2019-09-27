@@ -17,6 +17,7 @@ The following procedure implements quicksort:
 **Partitioning the Array**:
 
 The running time of the partition procedure on the subarray _A[p...r]_ is Ѳ(_n_), where _n = r - p + 1_.
+
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-22.png)
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-23.png)
