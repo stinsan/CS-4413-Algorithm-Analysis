@@ -63,3 +63,21 @@ Thus, the total cost of quicksort is _O(n lg n)_.
 
 Even though it is partitioned in a 9-1 split, quicksort still runs at _O(n lg n)_; a 99-1 split would still also yield _O(n lg n)_.
 In fact, any split of constant proportionality yields a recursion tree of depth _Θ(lg n)_, where each level is _O(n)_. Thus, quicksort has a running time of _O(n lg n)_ for a split with constant proportionality.
+
+**Intuition for the Average Case**:
+
+Quicksort is random; some partitions will be good and others will be bad. In the average case, however, there's a mix of good and bad splits. For the sake of intuition, suppose that the good and bad splits alternate levels in the tree and that the good splits are best-case and the bad splits are worst-case. This is shown in Figure 7.5a below:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-25.png)
+
+The bad split has a partitioning cost of _Θ(n) + Θ(n + 1) = Θ(n)_. The good split in Figure 7.5b also hase a partitioning cost of _Θ(n)_. Even though the good split is significantly more evenly partitioned than the bad split, they are still both _Θ(n)_.
+
+Thus, the running time of quicksort taking account good and bad partitions is still _O(n lg n)_, with the only difference being that the bad splits have a slightly larger hidden constant.
+
+## 7.3 | A Randomized Version of Quicksort
+
+In exploring the average-case complexity of quicksort, we assumed that good and bad splits were equally likely. In reality, this is not likely, but we can add randomization to an algorithm in order to obtain good expected performance over all inputs.
+
+Instead of always using _A[r]_ as the pivot, we will select an element from the subarray A[p...r] at random. We do so by first exchanging _A[r]_ with a random element from _A[p...r]_. By randomly sampling the range _p,...,r,_ we ensure that the pivot element _x = A[r]_ is equally likely to be any of the _r - p + 1_ elements in the subarray.
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-26.png)
