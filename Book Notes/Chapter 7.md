@@ -28,3 +28,38 @@ The running time of quicksort depends on whether the partitioning is balanced or
 
 **Worst-case Partitioning**:
 
+The worst-case for quicksort occurs when the array is partitioned into one subarray with _n - 1_ elements and another with 0 elements.
+Let us assume that this unbalanced partitioning occurs in every recursive call. The partitioning algorithm takes Θ(_n_) time. Since the recursive call of an array of size 0 just returns, T(0) = Θ(1). Thus, the recurrence of the running time is <br/>
+<br/>
+_T(n) = T(n - 1) + T(0) + Θ(n)_<br/>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_= T(n - 1) + Θ(n)_<br/>.
+<br/>
+This has the solution _T(n) = Θ(n<sup>2</sup>)_, by the substitution method.
+
+The Θ(n<sup>2</sup>) run time for quicksort occurs when the input array is already pre-sorted; this is a common situation in which insertion sort will perform better than quicksort. Insertion sort on a pre-sorted array runs in _O(n)_.
+
+**Best-case Partitioning**:
+
+The best-case for quicksort occurs when the array is partitioned as evenly as possible. One array will have size of _floor(n/2)_ and the other will have size of _ceil(n/2) - 1_. The recurrence for this case would be <br/>
+<br/>
+_T(n) = 2T(n/2) + Θ(n)_,<br/>
+<br/>
+where sloppiness from _floor()_, _ceil()_, and subtracting by 1 is tolerated. By the master's theorem, this recurrence has the solution _T(n) = Θ(n lg n)_.
+
+**Balanced Partitioning**:
+
+Suppose the partitioning algorithm produces a 9-to-1 proportional split. We then obtain the recurrence<br/>
+<br/>
+_T(n) = T(9n/10) + T(n/10) + cn_<br/>
+<br/>
+for the running time of quicksort, where the constant _c_ is explicitly shown for the _Θ(n)_ term.
+
+Figure 7.4 below shows the recursion tree for this recurrence:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-24.png)
+
+Notice that every level of the tree has cost _cn_ until the recursion reaches a boundary condition at _log<sub>10</sub> n = Θ(lg n)_, and then the level have a cost of less than or equal to _cn_. The recursion fully terminates at depth _log<sub>10/9</sub> n = Θ(lg n)_.
+Thus, the total cost of quicksort is _O(n lg n)_.
+
+Even though it is partitioned in a 9-1 split, quicksort still runs at _O(n lg n)_; a 99-1 split would still also yield _O(n lg n)_.
+In fact, any split of constant proportionality yields a recursion tree of depth _Θ(lg n)_, where each level is _O(n)_. Thus, quicksort has a running time of _O(n lg n)_ for a split with constant proportionality.
