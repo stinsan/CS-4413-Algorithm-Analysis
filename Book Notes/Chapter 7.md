@@ -81,3 +81,7 @@ In exploring the average-case complexity of quicksort, we assumed that good and 
 Instead of always using _A[r]_ as the pivot, we will select an element from the subarray A[p...r] at random. We do so by first exchanging _A[r]_ with a random element from _A[p...r]_. By randomly sampling the range _p,...,r,_ we ensure that the pivot element _x = A[r]_ is equally likely to be any of the _r - p + 1_ elements in the subarray.
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-26.png)
+
+## 7.4 | Analysis of Quicksort
+
+I am skipping this chapter.
