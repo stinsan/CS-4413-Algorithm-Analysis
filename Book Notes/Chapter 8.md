@@ -37,7 +37,7 @@ comparison sort algorithm. The following theorem establishes such a lower bound:
 
 ## 8.2 | Counting Sort
 
-**Counting sort** assumes that each of the _n_ input elements is an integer in the range 0 to _k_, for some integer _k_. When _k = O(n)_, the sort runs in _Θ(n)_.
+**Counting sort** assumes that each of the _n_ input elements is an integer in the range 0 to _k_, for some integer _k_. When _k = O(n)_, the sort runs in _Θ(n)_. Counting sort is also stable.
 
 Counting sort counts, for some element _x_, the number of elements less than _x_. It then uses this information to put _x_ in the correct position. For example, if there are 17 elements less than _x_, then _x_ belongs in the 18th index.
 
@@ -47,3 +47,14 @@ We must use 3 arrays for counting sort:
 3. _C[1...k]_ is a temporary, storage array used for work.
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-29.png)
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-31.png)
+
+**Complexity Analysis**:
+The for-loop of lines 2-3 takes _Θ(k)_. The for-loop of lines 4-5 takes _Θ(n)_. The for-loop of lines 7-8 takes _Θ(k)_. The for-loop of lines 10-12 takes _Θ(n)_. Thus, the overall time is Θ(n + k). In practice, counting sort is usually used when _k = O(n)_, in which case the running time is just _Θ(n)_.
+
+## 8.3 | Radix Sort
+
+Radix sort works by sorting by the least significant digit first, then sorting by the next most significant digit, until all digits _d_ are sorted.
+
+Figure 8.3 shows how radix sort works on an array of seven 3-digit numbers.
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-32.png)
