@@ -58,3 +58,24 @@ Radix sort works by sorting by the least significant digit first, then sorting b
 
 Figure 8.3 shows how radix sort works on an array of seven 3-digit numbers.
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-32.png)
+
+The following procedure assumes that
+each element in the _n_-element array _A_ has _d_ digits, where digit 1 is the lowest-order
+digit and digit _d_ is the highest-order digit.
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-33.png)
+
+## 8.4 | Bucket Sort
+
+Bucket sort assumes that the input is drawn from a uniform distribution.
+Bucket sort divides the interval [0, 1) into n equal-sized subintervals, or buckets,
+and then distributes the n input numbers into the buckets.
+
+Bucket sort assumes that the input is an _n_-element array _A_ and
+that each element _A[i]_ in the array satisfies 0 <= _A[i]_ < 1. The code requires an
+auxiliary array _B[0...n = 1]_ of linked lists (buckets) and assumes that there is a
+mechanism for maintaining such lists.
+
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-34.png)
+
