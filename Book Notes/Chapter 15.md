@@ -26,3 +26,13 @@ Given a rod length of _n_ inches and a table of prices _p<sub>i</sub>_ for _i = 
 Consider the case when _n = 4_. Figure 15.2 below shows all the ways to cut a 4 inch rod. We see that cutting the rod into two 2-inch pieces produces a revenue of _p<sub>2</sub> + p<sub>2</sub> = 5 + 5 = 10_, which is optimal.
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-40.png)
+
+Observe that there are _2<sup>n-1</sup>_ to cut up a rod of length _n_. We denote a decomposition into pieces using ordinary additive notation, so that 7 = 2 + 2 + 3 indicates that a 7-inch rod has been cut into two 2-inch pieces and one 3-ince piece.
+
+If an optimal solution cuts the rod into _k_ pieces, then an optimal decomposition
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_n = i<sub>1</sub> + i<sub>2</sub> + ... +  i<sub>k</sub>_
+
+of the rod into pieces of lengths  i<sub>1</sub>, i<sub>2</sub>, ..., i<sub>k</sub> provides a maximum corresponding revenue
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_r<sub>n</sub> = p<sub>i<sub>1</sub></sub> + p<sub>i<sub>2</sub></sub> + ... +  p<sub>i<sub>k</sub></sub>_
