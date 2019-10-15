@@ -130,3 +130,19 @@ Take another parenthesization, (A<sub>1</sub> (A<sub>2</sub> A<sub>3</sub>)), we
 
 The **matrix-chain multiplication problem** is stated as follows: Given a chain \<_A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>n</sub>_\> of _n_ matrices, where _i_ = 1, 2, ..., _n_, matrix _A<sub>i</sub>_ has dimension _p<sub>i-1</sub> x p<sub>i</sub>_, fully parthesize the product _A<sub>1</sub> A<sub>2</sub> ... A<sub>n</sub>_ in a way that minimizes the number of scalar multiplications.
 
+### Applying Dynamic Programming
+
+#### Step 1: The structure of an optimal parenthesization
+For convenience, let us adopt the notation _A<sub>i...j</sub>_, for the matrix that results from evaluating the product _A<sub>i</sub> A<sub>i+1</sub> ...A<sub>j</sub>_ . If the problem is nontrivial, then to parenthesize _A<sub>i</sub> A<sub>i+1</sub> ...A<sub>j</sub>_ , we must, for some value _k_ such that _i <= k < j_, compute the matrices _A<sub>i...k</sub>_ and _A<sub>k+1...j</sub>_ and then multiply them together to produce the product _A<sub>i...j</sub>_ . Both the "prefix" subchain the and "suffix" subchain have to be optimized themselves.
+
+#### Step 2: A recursive solution
+Next, we will define the cost of an optimal solution recursively in terms of the optimal solutions to the subproblems.
+We pick as our subproblems the problems of determining the minimum cost of parenthesizing _A<sub>i</sub> A<sub>i+1</sub> ... A<sub>j</sub>_ for _1 <= i <= j <= n_. Let _m[i, j]_ be the minimum number of scalar multiplications needed to compute the matrix _A<sub>i...j</sub>_; for the full problem, the lowest-cost way to compute _A<sub>1...n</sub>_ would be _m[1, n]_.
+
+The definition of _m[i, j]_ is as follows. If i = j, the problem is trivial, meaning no scalar multiplications are needed; thus, _m[i, i] = 0_. When it is nontrivial, we apply the split described in step 1, meaning we split the product _A<sub>i</sub> A<sub>i+1</sub> ...A<sub>j</sub>_ into  _A<sub>i...k</sub>_ and _A<sub>k+1...j</sub>_ for some _k_. Then, _m[i, j]_ equals the minimum cost for computing the subproducts _A<sub>i...k</sub>_ and _A<sub>k+1...j</sub>_, plus the cost of multiplying them together:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _m[i, j] = m[i, k] + m[k + 1, j] + p<sub>i-1</sub> p<sub>k</sub> p<sub>j</sub>_
+
+Since we don't know the value of _k_, we must check all possible values, namely _k = i, i + 1, ..., j - 1_. Additionally, we only require the minimum cost of parenthesization. Thus, our recursive definition for parenthesizing _A<sub>i...j</sub>_ is:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-51.png)
