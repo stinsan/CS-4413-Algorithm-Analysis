@@ -151,3 +151,13 @@ Since we don't know the value of _k_, we must check all possible values, namely 
 We implement that tabular, bottom up approach in the following procedure:
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-52.png)
+
+The procedure uses an auxiliary table _m[1...n, 1...n]_ for storing the _m[i, j]_ costs and another auxiliary table
+_s[1... n-1, 2...n]_ that records which index of _k_ achieved the optimal cost in computing _m[i, j]_
+
+Figure 15.5 illustrates this procedure on a chain of _n_ = 6 matrices.
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-53.png)
+
+A simple inspection of the nested loop structure of Matrix-Chain-Order
+yields a running time of O(_n<sup>3</sup>_); there is a triple-nested for-loop.
+Additionally, the procedure takes Θ(_n<sup>2</sup>_) space to store the _m_ and _s_ tables.
