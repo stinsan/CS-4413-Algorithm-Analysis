@@ -146,3 +146,8 @@ The definition of _m[i, j]_ is as follows. If i = j, the problem is trivial, mea
 Since we don't know the value of _k_, we must check all possible values, namely _k = i, i + 1, ..., j - 1_. Additionally, we only require the minimum cost of parenthesization. Thus, our recursive definition for parenthesizing _A<sub>i...j</sub>_ is:
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-51.png)
+
+#### Step 3: Computing the optimal costs
+We implement that tabular, bottom up approach in the following procedure:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-52.png)
