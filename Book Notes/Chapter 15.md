@@ -161,3 +161,5 @@ Figure 15.5 illustrates this procedure on a chain of _n_ = 6 matrices.
 A simple inspection of the nested loop structure of Matrix-Chain-Order
 yields a running time of O(_n<sup>3</sup>_); there is a triple-nested for-loop.
 Additionally, the procedure takes Θ(_n<sup>2</sup>_) space to store the _m_ and _s_ tables.
+
+### The rest of the chapter was not covered in lecture.
