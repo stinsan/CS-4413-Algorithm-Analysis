@@ -40,3 +40,69 @@ of the rod into pieces of lengths  i<sub>1</sub>, i<sub>2</sub>, ..., i<sub>k</s
 The _r<sub>i</sub>_ for _i_ = 1, 2, ..., 10 is:
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-41.png)
+
+More generally, we can frame the values _r<sub>n</sub>_ for _n_ >= 1 in terms of optimal revenues from shorter rods:
+
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; _r<sub>n</sub> = max( p<sub>n</sub> , r<sub>1</sub> + r<sub>n-1</sub> , r<sub>2</sub> + r<sub>n-2</sub> , ... , r<sub>n-1</sub> + r<sub>1</sub> ) = max<sub>1<=i<=n</sub> ( p<sub>i</sub> + r<sub>n-i</sub> )_
+
+### Recursive Top-Down Implementation
+This a a top-down, recursive implementation of the above equation:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-42.png)
+
+This algorithm is inefficient because it solves some subproblems over and over again; it takes O(2<sup>n</sup>), which is where dynamic programming comes into play.
+
+### Using Dynamic Programming for Optimal Rod Cutting
+
+Dynamic programming saves the solution of previous subproblems, thus using additional memory to save computation time; it is an example of **time-memory trade-off**.
+
+There are two ways to impelement dynamic programming:
+1. Top-down with memoization
+2. Bottom-up
+
+In **top-down with memoization**, we modified the procedure to save the result of
+each subproblem (usually in an array or hash table). The procedure now first checks
+to see whether it has previously solved this subproblem. If so, it returns the saved
+value, saving further computation at this level. 
+We say that the recursive procedure has been **memoized**;
+it “remembers” what results it has computed previously.
+
+Here is the Cut-Rod procedure with memoization:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-43.png)
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-44.png)
+
+The **bottom-up** version is even simpler:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-45.png)
+
+For the bottom-up dynamic-programming approach, the Bottom-Up-Cut-Rod procedure
+uses the natural ordering of the subproblems: a subproblem of size _i_ is “smaller”
+than a subproblem of size _j_ if _i < j_ . Thus, the procedure solves subproblems of
+sizes _j_ = 0, 1, ..., _n_, in that order.
+
+Both the top-down with memoization and the bottom-up method take time complexity Θ(n<sup>2</sup>).
+
+### Reconstructing a Solution
+Our dynamic-programming solutions to the rod-cutting problem return the value of
+an optimal solution, but they do not return an actual solution: a list of piece sizes.
+
+Here is an extended version of the Bottom-Up-Cut-Rod procedure that computes, for each
+rod size _j_, not only the maximum revenue _r<sub>j</sub>_ , but also _s<sub>j</sub>_, the optimal size of the
+first piece to cut off:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-46.png)
+
+The following procedure takes a price table _p_ and a rod size _n_, and it calls the
+Extended-Bottom-Up-Cut-Rod procedure to compute the array s[1...n] of optimal
+first-piece sizes and then prints out the complete list of piece sizes in an optimal
+decomposition of a rod of length _n_:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-47.png)
+
+A call to Extended-Bottom-Up-Cut-Rod(_p_, 10) would return arrays
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-48.png)
+
+A call to Print-Cut-Rod-Solution(_p_, 10) would just print 10, while a call to Print-Cut-Rod-Solution(_p_, 7) would print cuts 6 and 1.
