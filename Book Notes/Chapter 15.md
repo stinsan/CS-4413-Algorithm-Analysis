@@ -36,3 +36,7 @@ If an optimal solution cuts the rod into _k_ pieces, then an optimal decompositi
 of the rod into pieces of lengths  i<sub>1</sub>, i<sub>2</sub>, ..., i<sub>k</sub> provides a maximum corresponding revenue
 
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;_r<sub>n</sub> = p<sub>i<sub>1</sub></sub> + p<sub>i<sub>2</sub></sub> + ... +  p<sub>i<sub>k</sub></sub>_
+
+The _r<sub>i</sub>_ for _i_ = 1, 2, ..., 10 is:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-41.png)
