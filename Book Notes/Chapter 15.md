@@ -105,4 +105,28 @@ A call to Extended-Bottom-Up-Cut-Rod(_p_, 10) would return arrays
 
 ![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-48.png)
 
-A call to Print-Cut-Rod-Solution(_p_, 10) would just print 10, while a call to Print-Cut-Rod-Solution(_p_, 7) would print cuts 6 and 1.
+A call to Print-Cut-Rod-Solution (_p_, 10) would just print 10, while a call to Print-Cut-Rod-Solution (_p_, 7) would print cuts 6 and 1.
+
+### 15.2 | Matrix Chain Multiplication
+We are given a chain \<_A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>n</sub>_\> of _n_ matrices to be multiplies, and we wish to
+compute the product _A<sub>1</sub> A<sub>2</sub> ... A<sub>n</sub>_.
+ 
+Take, for example, _n_ = 4; this product can be parenthesized in five different ways:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-49.png)
+
+This is a naive implementation of this matrix multiplication:
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-50.png)
+
+If _A_ is a _p x q_ matrix and _B_ is a _q x r_ matrix, the resulting matrix _C_ is _p x r_. The time to compute C is dominated by the number of scalar multiplications in line 8, which is _pqr_.
+
+To illustrate the different costs incurred by different parenthesizations, take the chain \<_A<sub>1</sub>, A<sub>2</sub>, A<sub>3</sub>_\>. Suppose the dimensions are 10 x 100, 100 x 5, and 5 x 50, respectively. 
+
+If we multiply according to ((A<sub>1</sub> A<sub>2</sub>) A<sub>3</sub>), we get 10 x 100 x 5 = 5000 scalar multiplications to compute 
+A<sub>1</sub> A<sub>2</sub>, plus 10 x 5 x 50 = 2500 scalar multiplications to multiply that with A<sub>3</sub>. This nets us 7500 scalar multiplications total.
+
+Take another parenthesization, (A<sub>1</sub> (A<sub>2</sub> A<sub>3</sub>)), we perform 100 x 5 x 50 = 25000 scalar multiplications to compute A<sub>2</sub> A<sub>3</sub>, plus 10 x 100 x 50 = 50000 scalar multiplications to multiply that with  A<sub>1</sub>. This nets us 75000 scalar multiplications in total, 10 times more than the previous example.
+
+The **matrix-chain multiplication problem** is stated as follows: Given a chain \<_A<sub>1</sub>, A<sub>2</sub>, ..., A<sub>n</sub>_\> of _n_ matrices, where _i_ = 1, 2, ..., _n_, matrix _A<sub>i</sub>_ has dimension _p<sub>i-1</sub> x p<sub>i</sub>_, fully parthesize the product _A<sub>1</sub> A<sub>2</sub> ... A<sub>n</sub>_ in a way that minimizes the number of scalar multiplications.
+
