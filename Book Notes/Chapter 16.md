@@ -105,3 +105,4 @@ For our example, Huffman’s algorithm proceeds as shown in Figure 16.5.
 
 The total running time of Huffman Code algorithm on a set of _n_ characters is O(n lg n).
 
+### The rest of Chapter 16 was not covered in lecture.
