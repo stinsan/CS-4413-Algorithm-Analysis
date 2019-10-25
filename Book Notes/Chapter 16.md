@@ -61,5 +61,47 @@ possible solutions that take item 1 are both suboptimal.
 
 ## 16.3 | Huffman Codes
 
+Huffman codes provide an effective way to compress data. Huffman’s greedy algorithm uses a table giving
+how often each character occurs (i.e., its frequency) to build up an optimal way of
+representing each character as a binary string.
 
+Suppose we have a 100,000-character data file that we wish to store compactly.
+We observe that the characters in the file occur with the frequencies given by Figure 16.3. 
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-55.png)
+
+Here, we consider the problem of designing a **binary character code** in which each character is represented by a unique binary string, which we call a **codeword**. If we use a **fixed-length code**, we need 3 bits to represent 6 characters:
+_a_ = 000, _b_ = 001, ..., _f_ = 101. This method requires 300,000 bits to code the entire file. However, a **variable-length code** can do considerably better than a fixed-length code, by giving frequent characters short codewords and infrequent characters long codewords.
+For our example, this code requires 224,000 bits, a 25% improvement.
+
+### Prefix Codes
+For this to work, it must be that no codeword is also a prefix of some other codeword. Such codes are called **prefix codes**. To encode a string, we just concatenate the codewords representing each character of the file. 
+
+For example, with the variable-length prefix code of Figure 16.3, we code the 3-character file _abc_ as 0·101·100 =
+0101100, where “·” denotes concatenation.
+
+Prefix codes are desirable because they simplify decoding. Since no codeword is a prefix of any other, the codewords in an encoded file are unambigous.
+
+We represent the decoding process with the use of a binary tree whose leaves are the given characters. The binary codeword for a character is a simple path from the root to the character where 0 means to "go to the left child" and 1 means "go to the right child."
+Figure 16.4 shows the trees for the two codes of our example.
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-56.png)
+
+An optimal code for a file is always represented by a full binary tree, in which
+every nonleaf node has two children. The tree for the fixed-length code in Figure 16.4a is not optimal since it is not a full binary tree.
+
+### Constructing a Huffman Code
+In the pseudocode that follows, we assume that _C_ is a set of _n_ characters and
+that each character _c ∈ C_ is an object with an attribute _c.freq_ giving its frequency. The algorithm builds the tree T corresponding to the optimal code in a bottom-up manner.  The algorithm uses a min-priority
+queue _Q_, keyed on the _freq_ attribute, to identify the two least-frequent objects to
+merge together. When we merge two objects, the result is a new object whose
+frequency is the sum of the frequencies of the two objects that were merged.
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-57.png)
+
+For our example, Huffman’s algorithm proceeds as shown in Figure 16.5.
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-58.png)
+
+The total running time of Huffman Code algorithm on a set of _n_ characters is O(n lg n).
 
