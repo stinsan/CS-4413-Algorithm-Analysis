@@ -104,3 +104,11 @@ search finishes examining _v_ ’s adjacency list (and blackens _v_).
 
 The following pseudocode is the basic depth-first-search algorithm. The variable _time_ is a global variable that
 we use for timestamping.
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-63.png)
+
+Figure 22.4 illustrates the progress of _DFS_ on the graph shown in Figure 22.2.
+
+![](https://github.com/stinsan/CS-4413-Algorithm-Analysis/blob/master/Screenshots/algo-64.png)
+
+The running time of _DFS_ is Θ (_V + E_).
