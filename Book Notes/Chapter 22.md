@@ -75,3 +75,32 @@ assuming that _BFS_ has already computed a breadth-first tree:
 
 This procedure runs in time linear in the number of vertices in the path printed,
 since each recursive call is for a path one vertex shorter.
+
+## 22.3 | Depth-first Search
+The strategy followed by depth-first search is to search “deeper” in the graph whenever possible. Depth-first search explores edges out
+of the most recently discovered vertex _v_ that still has unexplored edges leaving it.
+Once all of _v_ ’s edges have been explored, the search “backtracks” to explore edges
+leaving the vertex from which _v_ was discovered. This process continues until we
+have discovered all the vertices that are reachable from the original source vertex.
+If any undiscovered vertices remain, then depth-first search selects one of them as
+a new source, and it repeats the search from that source. The algorithm repeats this
+entire process until it has discovered every vertex.
+
+Unlike breadth-first search,
+whose predecessor subgraph forms a tree, the predecessor subgraph produced by
+a depth-first search may be composed of several trees, because the search may
+repeat from multiple sources. Therefore, we define the **predecessor subgraph** of
+a depth-first search slightly differently from that of a breadth-first search: we let 
+_G<sub>π</sub>_ = (_V, E<sub>π</sub>_ ), where E<sub>π</sub> = {(_v.π , v_) : _v_ ∈ _V_ and _v.π_ ≠ _NIL_}
+
+Depth-first search colors vertices during the search to
+indicate their state. Each vertex is initially white, is grayed when it is discovered
+in the search, and is blackened when it is finished, that is, when its adjacency list
+has been examined completely.
+
+Depth-first search also **timestamps** each vertex. Each vertex _v_ has two timestamps: the first timestamp _v.d_ records when _v_
+is first discovered (and grayed), and the second timestamp _v.f_ records when the
+search finishes examining _v_ ’s adjacency list (and blackens _v_).
+
+The following pseudocode is the basic depth-first-search algorithm. The variable _time_ is a global variable that
+we use for timestamping.
